@@ -16,9 +16,11 @@ class MazeG {
       current.color = this.blue;
       let unvisited_neighbours = [];
       for(let i = 0; i < current.neighbours.length; i++) {
-        if(this.visited.indexOf(current.neighbours[i]) == -1)
+        if(this.visited.indexOf(current.neighbours[i]) === -1 && current.neighbours[i] != 0) {
           unvisited_neighbours.push(current.neighbours[i]);
+        }
       }
+
       if(unvisited_neighbours.length > 0) {
         current.color = this.lightblue;
         let ranCell = floor(random(0, unvisited_neighbours.length));
